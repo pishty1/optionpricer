@@ -5,7 +5,7 @@ import java.lang.*;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
 
-    public static double simpleMonteCarlo(PayOff thePayOff, double expiry, double strike, double spot, double vol, double r, long numberOfPaths) {
+    public static double simpleMonteCarlo(PayOff thePayOff, double expiry, double spot, double vol, double r, long numberOfPaths) {
 
         double variance = vol * vol * expiry;
         double rootVariance = Math.sqrt(variance);
@@ -37,8 +37,11 @@ public class Main {
         PayOff callPayOff = new PayOff(strike, OptionType.call);
         PayOff putPayOff = new PayOff(strike, OptionType.put);
 
-        double resultCall = simpleMonteCarlo(callPayOff, expiry, strike, spot, vol, r, numberOfPaths);
-        double resultPut  = simpleMonteCarlo(putPayOff, expiry, strike, spot, vol, r, numberOfPaths);
+        double resultCall = simpleMonteCarlo(callPayOff, expiry, spot, vol, r, numberOfPaths);
+        double resultPut  = simpleMonteCarlo(putPayOff, expiry, spot, vol, r, numberOfPaths);
+        System.out.println("results");
+
+
 
     }
 }
